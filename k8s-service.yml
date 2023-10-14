@@ -1,0 +1,100 @@
+# En este archivo se encuentra la configuración del despliegue de la aplicación
+# utilizando Kubernetes (K8s es su acronimo, lo vamos a usar para referirnos asi mas adelante).
+# En cada punto especificaremos los elementos respectivos.
+
+# Version del API de Kubernetes
+apiVersion: apps/v1
+# Tipo de elemento
+kind: Deployment
+# Metadatos del elemento
+metadata:
+  # Nombre
+  name: registro
+  # Etiqueta del Deployment
+  labels:
+    app: registro
+# Especificaciones del elemento
+spec:
+  replicas: 1
+  # K8s agrupa los elementos del Deployment y los interconecta entre si utilizando etiquetas
+  # Aqui definimos como seleccionar los elementos juntos
+  selector:
+    # En este caso va a seleccionar aquellos que coincidan con el nombre del deploy
+    matchLabels:
+      app: registro
+
+  # En esta sección definimos el contenido del pod y declaramos los contenedores
+  template:
+    metadata:
+      labels:
+        # Esta es la etiqueta que se le asigna al pod, debe ser igual al selector (linea 24)
+        app: registro
+    spec:
+      # Declaracion de contenedores
+      # name: Nombre del contenedor
+      # image: Nombre de la imagen, por defecto buscara en Docker Hub o en el repositorio privado
+      #        configurado en K8s 
+      containers:
+        - name: job-cloudbuild
+          image: us-central1-docker.pkg.dev/abc-jobs-cicd/my-repository/job-cloudbuild:COMMIT_SHA
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "250m"
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+          ports:
+            - containerPort: 3000
+          # Realizar pull siempre a la imagen
+          imagePullPolicy: Always
+
+# Vamos a especificar el balanceador de carga en este mismo archivo
+# para ello vamos a crear otro documento separado, esto se hace con el operador "---"
+---
+apiVersion: cloud.google.com/v1
+kind: BackendConfig
+metadata:
+  name: registro-config
+spec:
+  healthCheck:
+    checkIntervalSec: 30
+    port: 3000
+    type: HTTP
+    requestPath: /healthcheck
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: servicio-registro
+  annotations:
+    cloud.google.com/backend-config: '{"default": "registro-config"}'
+spec:
+  type: NodePort
+  selector:
+    app: registro
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 3000
+      nodePort: 31018
+
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: gateway-ingress
+  labels:
+    name: gateway-ingress
+spec:
+  rules:
+  - http:
+      paths:
+      - pathType: Prefix
+        path: /registro
+        backend:
+          service:
+            name: servicio-registro
+            port: 
+              number: 80
+      
