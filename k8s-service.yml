@@ -61,7 +61,7 @@ spec:
     checkIntervalSec: 30
     port: 3001
     type: HTTP
-    requestPath: registro/healthcheck
+    requestPath: /registro/healthcheck
 ---
 kind: Service
 apiVersion: v1
