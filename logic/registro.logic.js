@@ -24,7 +24,7 @@ class RegistroLogic {
                     ["nombre_completo", "email", "contrasena", "id_tipo_usuario"],
                     [nombre_completo, email, contrasena, id_tipo_usuario]
                 );
-                resolve(result.rows[0].id)            
+                resolve(result.rows[0].email)            
             }
         })
     }

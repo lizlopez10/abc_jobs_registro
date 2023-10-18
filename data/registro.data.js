@@ -1,6 +1,7 @@
 var db = require ("../db/db.js")
 
 class RegistroData{
+    constructor(){}
    
     select(tabla, columnasWhere, valoresWhere){
         return new Promise((resolve, reject)=>{
