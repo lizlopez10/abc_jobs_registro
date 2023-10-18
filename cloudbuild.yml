@@ -4,9 +4,6 @@ steps:
     args: ["install"]
 
   - name: "gcr.io/cloud-builders/npm"
-    args: ["install @faker-js/faker --save-dev"]
-
-  - name: "gcr.io/cloud-builders/npm"
     args: ["run", "test"]
 
   # This step builds the container image.
