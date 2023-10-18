@@ -12,7 +12,7 @@ steps:
     args:
     - 'build'
     - '-t'
-    - 'us-central1-docker.pkg.dev/$PROJECT_ID/repository-registro/job-registro:$SHORT_SHA'
+    - 'us-central1-docker.pkg.dev/$PROJECT_ID/repository-registro/job-cloudbuild:$SHORT_SHA'
     - '.'
 
   # This step pushes the image to Artifact Registry
@@ -22,7 +22,7 @@ steps:
     id: Push
     args:
     - 'push'
-    - 'us-central1-docker.pkg.dev/$PROJECT_ID/repository-registro/job-registro:$SHORT_SHA'
+    - 'us-central1-docker.pkg.dev/$PROJECT_ID/repository-registro/job-cloudbuild:$SHORT_SHA'
   
   
   - name: 'gcr.io/cloud-builders/gcloud'
@@ -60,5 +60,5 @@ steps:
     - 'k8s-service.yml'
     env:
     - 'CLOUDSDK_COMPUTE_REGION=us-central1'
-    - 'CLOUDSDK_CONTAINER_CLUSTER=job-registro'
+    - 'CLOUDSDK_CONTAINER_CLUSTER=job-cloudbuild'
     - 'COMMIT_SHA_TEST=$SHORT_SHA'
