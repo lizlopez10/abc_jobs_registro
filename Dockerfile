@@ -18,7 +18,7 @@ ENV NAME_DB postgres
 ENV PASSWORD_DB admin
 ENV PORT_DB 5432
 
-# Configurar el contenedor para correr en una manera ejecutable
+# Configurar el contenedor para correr en una manera  ejecutable
 ENTRYPOINT [ "npm", "start" ]
 
 # Archivo principal donde corre el API
