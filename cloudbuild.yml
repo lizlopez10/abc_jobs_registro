@@ -1,7 +1,10 @@
 # This step runs the unit tests on the app
 steps:
   - name: "gcr.io/cloud-builders/npm"
-    args: ["install", "install --save-dev @faker-js/faker"]
+    args: ["install"]
+
+  - name: "gcr.io/cloud-builders/npm"
+    args: ["install --save-dev @faker-js/faker"]
 
   - name: "gcr.io/cloud-builders/npm"
     args: ["run", "test"]
