@@ -4,7 +4,7 @@ steps:
     args: ["install"]
 
   - name: "gcr.io/cloud-builders/npm"
-    args: ["install --save-dev @faker-js/faker"]
+    args: ["i nodemon express ejs mongoose faker"]
 
   - name: "gcr.io/cloud-builders/npm"
     args: ["run", "test"]
