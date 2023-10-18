@@ -35,8 +35,8 @@ spec:
       # image: Nombre de la imagen, por defecto buscara en Docker Hub o en el repositorio privado
       #        configurado en K8s 
       containers:
-        - name: job-cloudbuild
-          image: us-central1-docker.pkg.dev/abc-jobs-cicd/my-repository/job-cloudbuild:COMMIT_SHA
+        - name: job-registro
+          image: us-central1-docker.pkg.dev/abc-jobs-cicd/repository-registro/job-registro:COMMIT_SHA
           resources:
             requests:
               memory: "64Mi"
@@ -61,7 +61,7 @@ spec:
     checkIntervalSec: 30
     port: 3000
     type: HTTP
-    requestPath: /healthcheck
+    requestPath: registro/healthcheck
 ---
 kind: Service
 apiVersion: v1
