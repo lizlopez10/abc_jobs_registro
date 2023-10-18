@@ -20,7 +20,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/registro', registroRouter);
-app.use('/healthcheck', healthcheckRouter);
+app.use('/registro/healthcheck', healthcheckRouter);
 
 
 // catch 404 and forward to error handler
