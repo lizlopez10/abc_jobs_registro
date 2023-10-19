@@ -16,7 +16,7 @@ metadata:
 # Especificaciones del elemento
 spec:
   replicas: 1
-  # K8s agrupa los elementos del Deployment y los interconecta entre si utilizando etiquetas
+  # K8s agrupa los elementos  del Deployment y los interconecta entre si utilizando etiquetas
   # Aqui definimos como seleccionar los elementos juntos
   selector:
     # En este caso va a seleccionar aquellos que coincidan con el nombre del  deploy
