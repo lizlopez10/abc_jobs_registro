@@ -12,12 +12,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/healthcheck",
+					"raw": "localhost:3001/registro/healthcheck",
 					"host": [
 						"localhost"
 					],
-					"port": "3000",
+					"port": "3001",
 					"path": [
+						"registro",
 						"healthcheck"
 					]
 				}
@@ -29,12 +30,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:3000/healthcheck",
+							"raw": "localhost:3001/registro/healthcheck",
 							"host": [
 								"localhost"
 							],
-							"port": "3000",
+							"port": "3001",
 							"path": [
+								"registro",
 								"healthcheck"
 							]
 						}
@@ -84,7 +86,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"nombre_completo\": \"Carlos\",\n    \"email\": \"carolina@e.com\",\n    \"contrasena\":\"abc123\",\n    \"id_tipo_usuario\":1\n}",
+					"raw": "{\n    \"nombre_completo\": \"Lizeth Lopez\",\n    \"email\": \"lizcaro@e.com\",\n    \"contrasena\":\"abc123\",\n    \"id_tipo_usuario\":1\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -92,11 +94,11 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/registro/usuario",
+					"raw": "localhost:3001/registro/usuario",
 					"host": [
 						"localhost"
 					],
-					"port": "3000",
+					"port": "3001",
 					"path": [
 						"registro",
 						"usuario"
@@ -119,11 +121,11 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:3000/registro/usuario",
+							"raw": "localhost:3001/registro/usuario",
 							"host": [
 								"localhost"
 							],
-							"port": "3000",
+							"port": "3001",
 							"path": [
 								"registro",
 								"usuario"
@@ -181,11 +183,11 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:3000/registro/usuario",
+							"raw": "localhost:3001/registro/usuario",
 							"host": [
 								"localhost"
 							],
-							"port": "3000",
+							"port": "3001",
 							"path": [
 								"registro",
 								"usuario"
@@ -243,11 +245,11 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:3000/registro/usuario",
+							"raw": "localhost:3001/registro/usuario",
 							"host": [
 								"localhost"
 							],
-							"port": "3000",
+							"port": "3001",
 							"path": [
 								"registro",
 								"usuario"
@@ -334,11 +336,11 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:3000/registro/login",
+							"raw": "localhost:3001/registro/login",
 							"host": [
 								"localhost"
 							],
-							"port": "3000",
+							"port": "3001",
 							"path": [
 								"registro",
 								"login"
@@ -396,11 +398,11 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:3000/registro/login",
+							"raw": "localhost:3001/registro/login",
 							"host": [
 								"localhost"
 							],
-							"port": "3000",
+							"port": "3001",
 							"path": [
 								"registro",
 								"login"
