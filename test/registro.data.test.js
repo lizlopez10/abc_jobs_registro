@@ -10,6 +10,9 @@ const db = {
 
 // Definir los tests
 describe('RegistroData', () => {
+  it('test', async () => {
+    expect(1).toBe(1);
+  })
 
   // it('debería insertar registros en la base de datos', async () => {
   //   const tabla = 'registro.usuarios';
