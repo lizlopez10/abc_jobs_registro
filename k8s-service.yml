@@ -97,4 +97,7 @@ spec:
             name: servicio-registro
             port: 
               number: 80
-      
+  tls:
+  - hosts:
+    - ingress.local
+    secretName: ingress-local-cert
