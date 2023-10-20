@@ -6,19 +6,26 @@ TOKEN_SECRET = 'secret_key';  /// pasara variable de entorno
 
 class RegistroLogic {
 
+    async validateTipoUsuario(id_tipo_usuario){
+        let tipoUsuarioExiste = await data.select('registro.tipo_usuario', ['id'], [id_tipo_usuario]);
+        return tipoUsuarioExiste.rowCount > 0;
+    }
+
+    async validateUsuarioExistente(email){
+        let usuarioExiste = await await data.select('registro.usuarios', ['email'], [email]);
+        return usuarioExiste.rowCount > 0;
+    }
+
     async registroUsuario(nombre_completo, email, contrasena, id_tipo_usuario) {
         
         return new Promise(async (resolve,reject)=>{
 
-            let tipoUsuarioExiste = await data.select('registro.tipo_usuario', ['id'], [id_tipo_usuario]);
-            tipoUsuarioExiste = tipoUsuarioExiste.rowCount > 0;
-            if (!tipoUsuarioExiste) reject('el tipo de usuario no existe');
+            let tipoUsuarioExiste = await this.validateTipoUsuario(id_tipo_usuario);
+            if(!tipoUsuarioExiste) reject('el tipo de usuario no existe');
+            let usuarioExiste =await this.validateUsuarioExistente(email);
+            if (usuarioExiste) reject('el usuario ya existe');
 
-            let usuarioExiste = await data.select('registro.usuarios', ['email'], [email]);
-            usuarioExiste = usuarioExiste.rowCount === 0;
-            if (!usuarioExiste) reject('el usuario ya existe');
-
-            if (tipoUsuarioExiste && usuarioExiste) {
+            if (tipoUsuarioExiste && !usuarioExiste) {
                 var result = await data.insert(
                     'registro.usuarios',
                     ["nombre_completo", "email", "contrasena", "id_tipo_usuario"],

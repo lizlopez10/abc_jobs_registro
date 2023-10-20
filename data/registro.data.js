@@ -7,7 +7,6 @@ class RegistroData{
         return new Promise((resolve, reject)=>{
             var queryWhere = columnasWhere.map((col, i) => `${col} = $${i+1}`);
             var query = `SELECT * FROM ${tabla} WHERE ${queryWhere.join(' and ')}`;
-            console.log(query)
             db.query(query, valoresWhere, (error, result) =>{
                 if(error){
                     reject(error)

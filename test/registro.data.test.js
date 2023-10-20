@@ -10,24 +10,6 @@ const db = {
 
 // Definir los tests
 describe('RegistroData', () => {
-  it('test', async () => {
-    expect(1).toBe(1);
-  })
-  // it('debería seleccionar registros de la base de datos', async () => {
-  //   const tabla = 'registro.usuarios';
-  //   const columnasWhere = ['email'];
-  //   const valoresWhere = ['liz@e.com',];
-
-  //   // Configura el mock de la base de datos
-  //   db.query.mockImplementation((query, valores, callback) => {
-  //     expect(query).toBe('SELECT * FROM usuarios WHERE email = $1');
-  //     expect(valores).toEqual(['liz@e.com']);
-  //     callback(null, {rowCount: 1});
-  //   });
-
-  //   const result = await registro.select(tabla, columnasWhere, valoresWhere);
-  //   expect(result.rowCount).toBe(1);
-  // });
 
   // it('debería insertar registros en la base de datos', async () => {
   //   const tabla = 'registro.usuarios';
