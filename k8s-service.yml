@@ -87,9 +87,20 @@ metadata:
   labels:
     name: gateway-ingress
 spec:
+  tls:
+  - hosts:
+    - ingress.local
+    secretName: ingress-local-cert
   rules:
   - http:
       paths:
+      - pathType: Prefix
+        path: /candidato
+        backend:
+          service:
+            name: servicio-candidato
+            port: 
+              number: 80
       - pathType: Prefix
         path: /registro
         backend:
@@ -97,7 +108,10 @@ spec:
             name: servicio-registro
             port: 
               number: 80
-  tls:
-  - hosts:
-    - ingress.local
-    secretName: ingress-local-cert
+      - pathType: Prefix
+        path: /empresa
+        backend:
+          service:
+            name: servicio-empresa
+            port: 
+              number: 80
