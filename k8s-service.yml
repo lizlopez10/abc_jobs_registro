@@ -76,8 +76,10 @@ spec:
   ports:
   - port: 443
     targetPort: 8443
+    nodePort: 31019
   - port: 80
     targetPort: 50001
+    nodePort: 31023
 
 ---
 apiVersion: networking.k8s.io/v1
