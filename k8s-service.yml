@@ -32,7 +32,7 @@ spec:
     spec:
       # Declaracion de contenedores
       # name: Nombre del contenedor
-      # image: Nombre de la imagen, por defecto buscara en Docker Hub o en el repositorio privado
+      # image: Nombre de la  imagen, por defecto buscara en Docker Hub o en el repositorio privado
       #        configurado en K8s 
       containers:
         - name: job-cloudbuild
