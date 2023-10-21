@@ -77,7 +77,7 @@ spec:
   ports:
   - port: 443
     targetPort: 8443
-    nodePort: 31019
+    nodePort: 31030
   - port: 80
     targetPort: 50001
     nodePort: 31019
