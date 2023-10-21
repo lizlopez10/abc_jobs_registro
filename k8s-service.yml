@@ -33,7 +33,7 @@ spec:
       # Declaracion de contenedores
       # name: Nombre del contenedor
       # image: Nombre de la  imagen, por defecto buscara en Docker Hub o en el repositorio privado
-      #        configurado en K8s 
+      # configurado en K8s 
       containers:
         - name: job-cloudbuild
           image: us-central1-docker.pkg.dev/abc-jobs-cicd/repository-registro/job-cloudbuild:a99e524
