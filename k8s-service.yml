@@ -1,6 +1,6 @@
 # En este archivo se encuentra la configuración del despliegue de la aplicación
 # utilizando Kubernetes (K8s es su acronimo, lo vamos a usar para referirnos asi mas adelante).
-# En cada punto especificaremos los elementos respectivos.
+# En cada punto  especificaremos los elementos respectivos.
 
 # Version del API de Kubernetes
 apiVersion: apps/v1
