@@ -22,7 +22,7 @@ steps:
     - 'us-central1-docker.pkg.dev/$PROJECT_ID/repository-registro/job-cloudbuild:$SHORT_SHA'
   
   - name: "gcr.io/cloud-builders/npm"
-    args: ["run", "test --coverage"]
+    args: ["run", "test"]
   
   - name: 'gcr.io/cloud-builders/gcloud'
     id: print 1
