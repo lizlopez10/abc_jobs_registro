@@ -23,7 +23,7 @@ class RegistroLogic {
             let tipoUsuarioExiste = await this.validateTipoUsuario(id_tipo_usuario);
             if(!tipoUsuarioExiste) reject('el tipo de usuario no existe');
             let usuarioExiste =await this.validateUsuarioExistente(email);
-            if (usuarioExiste) reject('el usuario ya existe');
+            if (usuarioExiste) reject('el usuario ya existe'); /// devolver en es
 
             if (tipoUsuarioExiste && !usuarioExiste) {
                 var result = await data.insert(
@@ -31,7 +31,10 @@ class RegistroLogic {
                     ["nombre_completo", "email", "contrasena", "id_tipo_usuario"],
                     [nombre_completo, email, contrasena, id_tipo_usuario]
                 );
-                resolve(result.rows[0].email)            
+                resolve({
+                    'email':result.rows[0].email,
+                    'id': result.rows[0].id
+                })            
             }
         })
     }

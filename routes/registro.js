@@ -23,13 +23,13 @@ router.post('/usuario', async function(req, res) {
   const { error } = schemaRegister.validate(req.body)
   if (error) {
     return res.status(400).json(
-        {error: error.details[0].message}
+        {error: error.details[0].message} // error: es en formulario invalido
     )
   }
   const { nombre_completo, email, contrasena, id_tipo_usuario } = req.body
   try {
     var result = await logica.registroUsuario(nombre_completo, email, contrasena, id_tipo_usuario);
-    res.status(201).send('successful!')
+    res.status(201).send(result) // cambiar msj
   } catch (error) {
     return res.status(400).json(error);
   }
