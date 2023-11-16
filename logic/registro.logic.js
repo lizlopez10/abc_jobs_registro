@@ -53,7 +53,8 @@ class RegistroLogic {
                 const usuarioLogin = {
                     token,
                     usuario: usuarioValido.rows[0].email,
-                    id_tipo_usuario: usuarioValido.rows[0].id_tipo_usuario
+                    id_tipo_usuario: usuarioValido.rows[0].id_tipo_usuario,
+                    id: usuarioValido.rows[0].id
                 }
                 resolve(usuarioLogin)
             }            
