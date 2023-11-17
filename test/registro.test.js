@@ -11,15 +11,17 @@ describe('registroUsuario', () => {
     const email = 'ususario@gm.com';
     const contrasena = 'contrasena123';
     const id_tipo_usuario = 1;
+    const mockedResult = {
+      email: email,
+      id: 1
+    }
     jest.spyOn(functions, 'validateTipoUsuario').mockResolvedValue(true);
     jest.spyOn(data, 'select').mockResolvedValue({rowCount: 0});
     jest.spyOn(data, 'insert').mockResolvedValue({
-      rows:[{
-        email
-      }]
+      rows:[mockedResult]
     });
     const result = await functions.registroUsuario(nombre_completo, email, contrasena, id_tipo_usuario);
-    expect(result).toEqual(email);
+    expect(result).toEqual(mockedResult);
 
   });
   it('debería no registrar un usuario por tipo de ususario invalido', async () => {
